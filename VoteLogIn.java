@@ -28,7 +28,7 @@ import java.awt.SystemColor;
 
 public class VoteLogIn extends JFrame {
 	static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
-	static final String DB_URL = "jdbc:mysql://localhost:3306/elections";
+	static final String DB_URL = "jdbc:mysql://localhost/elections";
 	static final String USER = "root";
 	static final String PASS = "iloveGod";
 
@@ -202,7 +202,7 @@ public class VoteLogIn extends JFrame {
 		contentPane.add(registerUserButton);
 
 		loginReturnButton = new JButton("Return to Log In");
-		loginReturnButton.setBounds(299, 253, 85, 21);
+		loginReturnButton.setBounds(299, 325, 85, 21);
 		loginReturnButton.setFont(new Font("Tahoma", Font.PLAIN, 6));
 		loginReturnButton.setVisible(false);
 		contentPane.add(loginReturnButton);
@@ -214,13 +214,13 @@ public class VoteLogIn extends JFrame {
 		contentPane.add(register);
 
 		voterButton = new JRadioButton("Voter Account");
-		voterButton.setBounds(199, 317, 151, 21);
+		voterButton.setBounds(199, 285, 151, 21);
 		voterButton.setBackground(SystemColor.info);
 		voterButton.setVisible(false);
 		contentPane.add(voterButton);
 
 		adminButton = new JRadioButton("Admin Account");
-		adminButton.setBounds(380, 317, 152, 21);
+		adminButton.setBounds(380, 285, 152, 21);
 		adminButton.setBackground(SystemColor.info);
 		adminButton.setVisible(false);
 		contentPane.add(adminButton);
@@ -231,7 +231,7 @@ public class VoteLogIn extends JFrame {
 		voterButton.setSelected(true);
 
 		adminlbl = new JLabel("Admin's Page");
-		adminlbl.setBounds(291, 50, 93, 13);
+		adminlbl.setBounds(291, 10, 93, 13);
 		adminlbl.setHorizontalAlignment(SwingConstants.CENTER);
 		adminlbl.setVisible(false);
 		contentPane.add(adminlbl);
@@ -373,15 +373,18 @@ public class VoteLogIn extends JFrame {
 						candidate3button.setVisible(true);
 						candidate4button.setVisible(true);
 						voteSubmit.setVisible(true);
+						loginReturnButton.setVisible(true);
 					} else if (resultInt == 1) {
 						System.out.println("Admin Page");
 						LogIn.setVisible(false);
+						voting.setVisible(false);
 						plslogin.setVisible(false);
 						textUser.setVisible(false);
 						textPass.setVisible(false);
 						userlbl.setVisible(false);
-						passlbl.setVisible(false);
 						scrollPane.setVisible(true);
+						table_1.setVisible(true);
+						passlbl.setVisible(false);
 						registerButton.setVisible(false);
 						adminlbl.setVisible(true);
 						viewResultsButton.setVisible(true);
@@ -472,14 +475,26 @@ public class VoteLogIn extends JFrame {
 				textPass.setVisible(true);
 				userlbl.setVisible(true);
 				viewResultsButton.setVisible(false);
+				voting.setVisible(true);
 				passlbl.setVisible(true);
+				table_1.setVisible(false);
+				scrollPane.setVisible(false);
 				adminlbl.setVisible(false);
+				plsvote.setVisible(false);
+				candidate1button.setVisible(false);
+				candidate2button.setVisible(false);
+				candidate3button.setVisible(false);
+				candidate4button.setVisible(false);
+				voteSubmit.setVisible(false);
+				loginReturnButton.setVisible(false);
 				System.out.println("Log In Page");
 			}
 		});
 
 		viewResultsButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				scrollPane.setVisible(true);
+				table_1.setVisible(true);
 				tableUpdate();
 			}
 		});
