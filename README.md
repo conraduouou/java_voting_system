@@ -7,3 +7,6 @@ A simple voting system made on Java GUI. Specifically made for ModSim presentati
 2. I-uncomment ang createDatabase method at i-comment naman yung createTables na method sa loob ng main method. Nasa bandang line 28 at 29 ito. I-run.
 3. I-uncomment naman ang createTables at i-comment ang createDatabase. I-run muli.
 4. Kung successful naman ang pag-run, dapat mayroon na kayong database na may default admin account na username:root at password:pass. 
+
+
+## Run the VoteLogin.java file and it should work as intended
